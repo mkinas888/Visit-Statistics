@@ -60,15 +60,31 @@ const getAverage = (series, isEachWeekDayAverage = false) => {
                     break;
             }
         });
-        finalAverage.Sunday.averageVisits /= sundayEntries;
-        finalAverage.Monday.averageVisits /= mondayEntries;
-        finalAverage.Tuesday.averageVisits /= tuesdayEntries;
-        finalAverage.Wednesday.averageVisits /= wednesdayEntries;
-        finalAverage.Thursday.averageVisits /= thursdayEntries;
-        finalAverage.Friday.averageVisits /= fridayEntries;
-        finalAverage.Saturday.averageVisits /= saturdayEntries;
+        if(sundayEntries !== 0) {
+            finalAverage.Sunday.averageVisits /= sundayEntries;
+        }
+        if(mondayEntries !== 0) {
+            finalAverage.Monday.averageVisits /= mondayEntries;
+        }
+        if(tuesdayEntries !== 0) {
+            finalAverage.Tuesday.averageVisits /= tuesdayEntries;
+        }
+        if(wednesdayEntries !== 0) {
+            finalAverage.Wednesday.averageVisits /= wednesdayEntries;
+        }
+        if(thursdayEntries !== 0) {
+            finalAverage.Thursday.averageVisits /= thursdayEntries;
+        }
+        if(fridayEntries !== 0) {
+            finalAverage.Friday.averageVisits /= fridayEntries;
+        }
+        if(saturdayEntries !== 0) {
+            finalAverage.Saturday.averageVisits /= saturdayEntries;
+        }
     } else {
-        finalAverage = {averageVisits: 0};
+        finalAverage = {
+            averageVisits: 0
+        };
         series.forEach( elem => {
             ++entriesNumber;
             finalAverage.averageVisits += elem.visits;
