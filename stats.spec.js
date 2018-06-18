@@ -109,23 +109,23 @@ describe('getAverage', () => {
     { date: new Date('2018-01-07'), visits: 44 },
   ];
   let secondWeek = [
-    { date: new Date('2018-01-13'), visits: 24 },
-    { date: new Date('2018-01-14'), visits: 56 },
-    { date: new Date('2018-01-11'), visits: 32 },
-    { date: new Date('2018-01-10'), visits: 68 },
-    { date: new Date('2018-01-09'), visits: 84 },
-    { date: new Date('2018-01-08'), visits: 52 },
+    { date: new Date('2018-01-06'), visits: 24 },
+    { date: new Date('2018-01-07'), visits: 56 },
+    { date: new Date('2018-01-04'), visits: 32 },
+    { date: new Date('2018-01-03'), visits: 68 },
+    { date: new Date('2018-01-02'), visits: 84 },
+    { date: new Date('2018-01-01'), visits: 52 },
   ];
 
   let series = firstWeek.concat(secondWeek);
 
-  test('average of series which is not complete', () => {
+  test('average of series with the same date', () => {
     expect(getAverage(series)).toEqual({
       averageVisits: 52,
     });
   });
 
-  test('week days average of series which is not complete', () => {
+  test('week days average of series with the same date', () => {
     expect(getAverage(series, true)).toEqual({
       Monday: {
         averageVisits: 43,
