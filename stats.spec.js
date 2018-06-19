@@ -200,5 +200,41 @@ describe('getAverage', () => {
   });
 });
 
+describe('getAverage', () => {
+  let week = [];
+
+  test('average of empty series', () => {
+    expect(getAverage(week)).toEqual({
+      averageVisits: 0,
+    });
+  });
+
+  test('week days average of empty series', () => {
+    expect(getAverage(week, true)).toEqual({
+      Monday: {
+        averageVisits: 0,
+      },
+      Tuesday: {
+        averageVisits: 0,
+      },
+      Wednesday: {
+        averageVisits: 0,
+      },
+      Thursday: {
+        averageVisits: 0,
+      },
+      Friday: {
+        averageVisits: 0,
+      },
+      Saturday: {
+        averageVisits: 0,
+      },
+      Sunday: {
+        averageVisits: 0,
+      },
+    });
+  });
+});
+
 
 
